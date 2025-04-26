@@ -1,26 +1,61 @@
-# Introduction to JavaScript and DOM Manipulation
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Abang Foundation: A Home for Every Heart">
+    <title>Meeting the Meek</title>
+    <style>
+        #dynamicText {
+            color: blue;
+            font-size: 18px;
+        }
+        .highlight {
+            background-color: yellow;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Abang Foundation</h1>
+    <h3>Welcoming the Needy</h3>
+    <h6>Bring all your charitable gifts</h6>
+    <img src="charity logo.png" alt="Abang Foundation">
+    <p id="dynamicText">Welcome to Abang Foundation: A Home for Every Heart</p>
 
-## Objectives
+    <button id="changeTextBtn">Change Text</button>
+    <button id="toggleStyleBtn">Toggle Highlight</button>
+    <button id="addRemoveElementBtn">Add/Remove Element</button>
 
-Write basic JavaScript functions.
-Manipulate the DOM dynamically.
-Respond to user interactions.
+    <div id="container"></div>
 
-## Instructions
+    <script>
+        // Change text content dynamically
+        document.getElementById('changeTextBtn').addEventListener('click', function() {
+            const dynamicText = document.getElementById('dynamicText');
+            dynamicText.textContent = "Thank you for supporting Abang Foundation!";
+        });
 
-- Create a script.js file and link it to a HTML.
-- Structure the document using DOCTYPE, html, head, and body.
+        // Modify CSS styles dynamically
+        document.getElementById('toggleStyleBtn').addEventListener('click', function() {
+            const dynamicText = document.getElementById('dynamicText');
+            dynamicText.classList.toggle('highlight');
+        });
 
->[!NOTE]
->  - Write JavaScript that:
->  - Changes text content dynamically.
->  - Modifies CSS styles via JavaScript.
->  - Adds or removes an element when a button is clicked.
+        // Add or remove an element dynamically
+        document.getElementById('addRemoveElementBtn').addEventListener('click', function() {
+            const container = document.getElementById('container');
+            const existingElement = document.getElementById('newElement');
 
-
-# Tasks
-- Create a well-structured HTML5 document.
-- Use at least 5 different HTML elements.
-- Ensure semantic correctness.
-
-Happy Coding! 💻✨
+            if (existingElement) {
+                container.removeChild(existingElement);
+            } else {
+                const newElement = document.createElement('p');
+                newElement.id = 'newElement';
+                newElement.textContent = "This is a dynamically added element.";
+                container.appendChild(newElement);
+            }
+        });
+    </script>
+</body>
+<footer>Welcome to Abang Foundation: A Home for Every Heart</footer>
+</html>
